@@ -1,6 +1,6 @@
-from src.Database.DatabaseConnector import connectDB
+from src.Database import DatabaseConnector
 
-connecttoDB = connectDB()
+connecttoDB = DatabaseConnector.connectDB()
 sqlclient = connecttoDB.cursor()
 
 
@@ -11,8 +11,10 @@ def createUser(uid, passwd, email):
     connecttoDB.commit()
     print("user created successfully")
 
-
-# createUser("manas", "test", "basamanas@gmail.com")
+# Remove when test cases are added
+'''
+createUser("manas", "test", "test@gmail.com")
+'''
 
 def validateUserCredentials(uid, passwd):
     sql = 'Select passwd from users where uname=\'' + str(uid) + "\'"
